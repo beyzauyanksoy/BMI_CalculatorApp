@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 
+import 'calculate.dart';
 import 'home.dart';
 
 class Ibm extends StatefulWidget {
   const Ibm({
     super.key,
     required this.sonuc,
-    required this.detay,
+    required this.detay, required this.images,
   });
-  final String sonuc, detay;
+  final String sonuc, detay,images;
   @override
   State<Ibm> createState() => _IbmState();
 }
@@ -51,7 +52,9 @@ class _IbmState extends State<Ibm> {
                   Padding(
                     padding: const EdgeInsets.only(top: 15),
                     child: Text(
-                      widget.sonuc == "-1.00" ? "Uygun degerler giriniz !" : widget.sonuc,
+                      widget.sonuc == "-1.00"
+                          ? "Uygun degerler giriniz !"
+                          : widget.sonuc,
                       style: const TextStyle(
                           color: Colors.green,
                           fontSize: 40,
@@ -61,7 +64,7 @@ class _IbmState extends State<Ibm> {
                   Padding(
                     padding: const EdgeInsets.only(top: 15),
                     child: Text(
-                       widget.sonuc == "-1.00" ? "" : widget.detay,
+                      widget.sonuc == "-1.00" ? "" : widget.detay,
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           fontSize: 16,
@@ -73,15 +76,18 @@ class _IbmState extends State<Ibm> {
               ),
             ),
           ),
+
+               Image.asset(widget.images),
+          
+          // Image.asset("assets/overweight.gif"),
+
           GestureDetector(
             onTap: () {
               Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => Home(
-                          
-                        ),
-                      ),
-                    );
+                MaterialPageRoute(
+                  builder: (context) => Home(),
+                ),
+              );
             },
             child: Padding(
               padding: const EdgeInsets.only(right: 10, left: 10, bottom: 50),

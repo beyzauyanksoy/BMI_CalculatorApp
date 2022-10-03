@@ -27,4 +27,22 @@ class Calculate {
     }
     return 'Hesaplanamadı';
   }
+
+
+  static String images(double kilo, double boy) {
+    double sonuc = bmiCalculate(kilo, boy);
+
+    if (sonuc < 18.5) {
+      return 'assets/underWeight.png';
+    } else if (sonuc >= 18.5 && sonuc < 24.9) {
+      return 'assets/normal.gif';
+    } else if (sonuc >= 24.9 && sonuc < 29.5) {
+      return 'assets/idealKiloUstu.gif';
+    } else if (sonuc >= 29.5 && sonuc < 39.9) {
+      return 'assets/obez.gif';
+    } else if (sonuc >= 39.9) {
+      return 'assets/morbidObez.gif';
+    }
+    return 'Hesaplanamadı';
+  }
 }

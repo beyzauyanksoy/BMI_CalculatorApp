@@ -221,11 +221,15 @@ class _HomeState extends State<Home> {
                     String detay = Calculate.detail(
                         double.parse(myControllerKilo.text),
                         double.parse(myControllerUzunluk.text));
+                          String images = Calculate.images(
+                        double.parse(myControllerKilo.text),
+                        double.parse(myControllerUzunluk.text));
                     Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (context) => Ibm(
                           detay: detay,
                           sonuc: sonuc,
+                           images:images,
                         ),
                       ),
                     );
