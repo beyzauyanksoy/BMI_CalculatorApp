@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'calculate.dart';
 import 'ibm.dart';
@@ -18,6 +19,8 @@ class _HomeState extends State<Home> {
   // double height = 0;
   // double weight = 0;
   // double ort = 0;
+
+
 
   @override
   void dispose() {
@@ -130,6 +133,10 @@ class _HomeState extends State<Home> {
               Padding(
                 padding: const EdgeInsets.only(top: 20, right: 30),
                 child: TextField(
+                  keyboardType: TextInputType.number,
+                  inputFormatters:[
+                      FilteringTextInputFormatter.digitsOnly,
+                  ],
                   controller: myControllerYas,
                   // onChanged: (value) {
                   //   setState(() {
@@ -147,6 +154,12 @@ class _HomeState extends State<Home> {
               Padding(
                 padding: const EdgeInsets.only(top: 20, right: 30),
                 child: TextField(
+                  keyboardType: TextInputType.number,
+                  inputFormatters:[
+                      FilteringTextInputFormatter.digitsOnly,
+                  ],
+                  maxLength: 3,
+                  
                   controller: myControllerUzunluk,
                   // onChanged: (value) {
                   //   setState(() {
@@ -168,6 +181,12 @@ class _HomeState extends State<Home> {
               Padding(
                 padding: const EdgeInsets.only(top: 20, right: 30),
                 child: TextField(
+                  keyboardType: TextInputType.number,
+                  inputFormatters:[
+                      FilteringTextInputFormatter.digitsOnly,
+                  ],
+                  maxLength: 3,
+                  
                   controller: myControllerKilo,
                   // onChanged: (value) {
                   //   setState(() {
@@ -176,6 +195,8 @@ class _HomeState extends State<Home> {
                   //   });
                   // },
                   decoration: InputDecoration(
+                    
+                    
                       filled: true,
                       labelText: 'Weight',
                       suffix: Text(
@@ -192,6 +213,7 @@ class _HomeState extends State<Home> {
                   onTap: () {
                     // ort = weight / (height * height);
                     // print('ortalama: $ort');
+                   
                     String sonuc = Calculate.bmiCalculate(
                             double.parse(myControllerKilo.text),
                             double.parse(myControllerUzunluk.text))

@@ -2,9 +2,15 @@
 
 class Calculate {
   static double bmiCalculate(double kilo, double boy) {
+    if(boy<100 && kilo<30){
+     return -1;
+     
+    }
+    
     return (kilo / ((boy / 100) * (boy / 100)));
   }
 
+  
   static String detail(double kilo, double boy) {
     double sonuc = bmiCalculate(kilo, boy);
 

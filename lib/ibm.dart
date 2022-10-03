@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'home.dart';
 
 class Ibm extends StatefulWidget {
   const Ibm({
@@ -50,7 +51,7 @@ class _IbmState extends State<Ibm> {
                   Padding(
                     padding: const EdgeInsets.only(top: 15),
                     child: Text(
-                      widget.sonuc,
+                      widget.sonuc == "-1.00" ? "Uygun degerler giriniz !" : widget.sonuc,
                       style: const TextStyle(
                           color: Colors.green,
                           fontSize: 40,
@@ -60,7 +61,7 @@ class _IbmState extends State<Ibm> {
                   Padding(
                     padding: const EdgeInsets.only(top: 15),
                     child: Text(
-                      widget.detay,
+                       widget.sonuc == "-1.00" ? "" : widget.detay,
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           fontSize: 16,
@@ -73,7 +74,15 @@ class _IbmState extends State<Ibm> {
             ),
           ),
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => Home(
+                          
+                        ),
+                      ),
+                    );
+            },
             child: Padding(
               padding: const EdgeInsets.only(right: 10, left: 10, bottom: 50),
               child: Container(
